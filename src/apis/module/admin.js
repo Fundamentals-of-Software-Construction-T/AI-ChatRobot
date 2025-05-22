@@ -3,7 +3,6 @@ import RequestService from '../httpRequest';
 
 
 export default {
-    // 用户列表
     getUserList(params, callback) {
         const queryParams = new URLSearchParams({
             page: params.page,
@@ -25,7 +24,6 @@ export default {
                 })
             }).send()
     },
-    // 删除用户
     deleteUser(id, callback) {
         RequestService.sendRequest()
             .url(`${getServiceUrl()}/admin/users/${id}`)
@@ -41,7 +39,6 @@ export default {
                 })
             }).send()
     },
-    // 重置用户密码
     resetUserPassword(id, callback) {
         RequestService.sendRequest()
             .url(`${getServiceUrl()}/admin/users/${id}`)

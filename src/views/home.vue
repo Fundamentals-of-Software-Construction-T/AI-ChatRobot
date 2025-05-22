@@ -97,7 +97,6 @@ export default {
       this.addDeviceDialogVisible = true
     },
     goToRoleConfig() {
-      // 点击配置角色后跳转到角色配置页
       this.$router.push('/role-config')
     },
     handleWisdomBodyAdded(res) {
@@ -127,11 +126,7 @@ export default {
         return this.searchRegex.test(device.agentName);
       });
     },
-    // 搜索更新智能体列表
-    handleSearchResult(filteredList) {
-      this.devices = filteredList; // 更新设备列表
-    },
-    // 获取智能体列表
+    
     fetchAgentList() {
       this.isLoading = true;
       Api.agent.getAgentList(({ data }) => {
@@ -141,12 +136,6 @@ export default {
             agentId: item.id
           }));
 
-          // 动态设置骨架屏数量（可选）
-          this.skeletonCount = Math.min(
-            Math.max(this.originalDevices.length, 3), // 最少3个
-            10 // 最多10个
-          );
-
           this.handleSearchReset();
         }
         this.isLoading = false;
@@ -155,29 +144,7 @@ export default {
         this.isLoading = false;
       });
     },
-    // 删除智能体
-    handleDeleteAgent(agentId) {
-      this.$confirm('确定要删除该智能体吗？', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        Api.agent.deleteAgent(agentId, (res) => {
-          if (res.data.code === 0) {
-            this.$message.success({
-              message: '删除成功',
-              showClose: true
-            });
-            this.fetchAgentList(); // 刷新列表
-          } else {
-            this.$message.error({
-              message: res.data.msg || '删除失败',
-              showClose: true
-            });
-          }
-        });
-      }).catch(() => { });
-    }
+    
   }
 }
 </script>

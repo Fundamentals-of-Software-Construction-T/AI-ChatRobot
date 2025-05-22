@@ -33,9 +33,6 @@
           <el-menu-item index="intent">
             <span class="menu-text">意图识别</span>
           </el-menu-item>
-          <el-menu-item index="tts">
-            <span class="menu-text">语音合成</span>
-          </el-menu-item>
           <el-menu-item index="memory">
             <span class="menu-text">记忆</span>
           </el-menu-item>

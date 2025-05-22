@@ -41,12 +41,6 @@
               <span v-else>{{ scope.row.voiceName }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="语言类型" align="center" min-width="50">
-            <template slot-scope="scope">
-              <el-input v-if="scope.row.editing" v-model="scope.row.languageType"></el-input>
-              <span v-else>{{ scope.row.languageType }}</span>
-            </template>
-          </el-table-column>
           <el-table-column label="试听" align="center" min-width="100px" class-name="audio-column">
             <template slot-scope="scope">
               <div class="custom-audio-container">

@@ -46,10 +46,6 @@ export default {
   },
   methods: {
     confirm() {
-      if (!/^\d{6}$/.test(this.deviceCode)) {
-        this.$message.error('请输入6位数字验证码');
-        return;
-      }
       this.loading = true;
       Api.device.bindDevice(
         this.agentId,

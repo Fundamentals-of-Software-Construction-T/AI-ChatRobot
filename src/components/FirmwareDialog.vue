@@ -9,9 +9,6 @@
           <el-option v-for="item in firmwareTypes" :key="item.key" :label="item.name" :value="item.key"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="版本号" prop="version">
-        <el-input v-model="form.version" placeholder="请输入版本号(x.x.x格式)"></el-input>
-      </el-form-item>
       <el-form-item label="固件文件" prop="firmwarePath">
         <el-upload class="upload-demo" action="#" :http-request="handleUpload" :before-upload="beforeUpload"
           :accept="'.bin,.apk'" :limit="1" :multiple="false" :auto-upload="true">

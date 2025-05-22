@@ -3,22 +3,6 @@ import RequestService from '../httpRequest';
 
 
 export default {
-    // 获取智能体列表
-    getAgentList(callback) {
-        RequestService.sendRequest()
-            .url(`${getServiceUrl()}/agent/list`)
-            .method('GET')
-            .success((res) => {
-                RequestService.clearRequestTime();
-                callback(res);
-            })
-            .fail(() => {
-                RequestService.reAjaxFun(() => {
-                    this.getAgentList(callback);
-                });
-            }).send();
-    },
-    // 添加智能体
     addAgent(agentName, callback) {
         RequestService.sendRequest()
             .url(`${getServiceUrl()}/agent`)
@@ -34,22 +18,6 @@ export default {
                 });
             }).send();
     },
-    // 删除智能体
-    deleteAgent(agentId, callback) {
-        RequestService.sendRequest()
-            .url(`${getServiceUrl()}/agent/${agentId}`)
-            .method('DELETE')
-            .success((res) => {
-                RequestService.clearRequestTime();
-                callback(res);
-            })
-            .fail(() => {
-                RequestService.reAjaxFun(() => {
-                    this.deleteAgent(agentId, callback);
-                });
-            }).send();
-    },
-    // 获取智能体配置
     getDeviceConfig(deviceId, callback) {
         RequestService.sendRequest()
             .url(`${getServiceUrl()}/agent/${deviceId}`)
@@ -65,7 +33,6 @@ export default {
                 });
             }).send();
     },
-    // 配置智能体
     updateAgentConfig(agentId, configData, callback) {
         RequestService.sendRequest()
             .url(`${getServiceUrl()}/agent/${agentId}`)
@@ -78,22 +45,6 @@ export default {
             .fail(() => {
                 RequestService.reAjaxFun(() => {
                     this.updateAgentConfig(agentId, configData, callback);
-                });
-            }).send();
-    },
-    // 新增方法：获取智能体模板
-    getAgentTemplate(callback) {  // 移除templateName参数
-        RequestService.sendRequest()
-            .url(`${getServiceUrl()}/agent/template`)
-            .method('GET')
-            .success((res) => {
-                RequestService.clearRequestTime();
-                callback(res);
-            })
-            .fail((err) => {
-                console.error('获取模板失败:', err);
-                RequestService.reAjaxFun(() => {
-                    this.getAgentTemplate(callback);
                 });
             }).send();
     },

@@ -15,11 +15,6 @@
       </el-row>
       <el-row :gutter="20">
         <el-col :span="12">
-          <el-form-item label="语言类型" prop="languageType">
-            <el-input v-model="voiceForm.languageType" placeholder="请输入内容" class="compact-input"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
           <el-form-item label="排序号" prop="sortNumber">
             <el-input-number v-model="voiceForm.sortNumber" :min="1" :controls="false" class="compact-number"></el-input-number>
           </el-form-item>
